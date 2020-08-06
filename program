@@ -1,0 +1,30 @@
+# Program no. 1
+# read the dataset
+df = read.csv(&quot;iris.csv&quot;)
+#see the summary of dataset
+print(&quot;SUMMARY AND STRUCTURE&quot;)
+summary(df)
+str(df) #structure with class
+print(&quot;MINIMUM VALUE&quot;)
+print(sapply(df, function(x) min(as.numeric(x))))
+print(&quot;MAXIMUM VALUE&quot;)
+print(sapply(df, function(x) max(as.numeric(x))))
+print(&quot;AVERAGE VALUE&quot;)
+print(sapply(df, function(x) mean(as.numeric(x))))
+print(&quot;RANGE OF VALUES&quot;)
+print(sapply(df, function(x) range(as.numeric(x))))
+print(&quot;STANDARD DEVIATIONS&quot;)
+print(sapply(df, function(x) sd(as.numeric(x))))
+print(&quot;VARIANCE&quot;)
+print(sapply(df, function(x) var(as.numeric(x))))
+print(&quot;PERCENTILES&quot;)
+num = c(1,2,3,4)
+for (n in num) {
+cat(&quot;Column&quot;, n , &quot;\n&quot;)
+print(quantile(df[,n], probs = c(0, 0.25, 0.5, 0.75, 1)))
+}
+for (n in num) {
+hist(df[,n], main = &quot;Histogram&quot;)
+Sys.sleep(5)
+}
+boxplot(df[,1:4], main = &quot;Boxplot of Iris&quot;)
